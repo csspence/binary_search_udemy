@@ -6,5 +6,21 @@ Write a function binarySearch that accepts a sorted array and a value.  Create a
 */
 
 const binarySearch = (arr, val) => {
-  
+  let left = 0;
+  let right = arr.length - 1;
+  while(left < right) {
+    let index = Math.floor((right - left) / 2);
+    console.log('here is index: ' + index);
+    if(arr[index] === val) {
+      return index;
+    }
+    if(val < arr[index]) {
+      right = index;
+    }
+    if(val > arr[index]) {
+      left = index;
+    }
+  }
+
+  return -1;
 }
