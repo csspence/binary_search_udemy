@@ -9,5 +9,21 @@ binarySearch
 */
 
 const binarySearch = (arr, val) => {
+  let left = 0;
+  let right = arr.length - 1;
+  let mid = Math.floor(arr.length / 2);
+  while(left < right) {
+    console.log('here is mid: ' + mid);
+    if(arr[mid] === val) {
+      return mid;
+    } else if(arr[mid] > val) {
+      right = mid;
+      mid = Math.floor((right - left) / 2) + left;
+    } else if(arr[mid] < val) {
+      left = mid;
+      mid = Math.floor((right - left) / 2) + left;
+    }
+  }
 
+  return -1;
 }
