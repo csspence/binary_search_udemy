@@ -12,7 +12,10 @@ const binarySearch = (arr, val) => {
   let left = 0;
   let right = arr.length - 1;
   let mid = Math.floor(arr.length / 2);
-  while(left < right) {
+  if(val > arr[arr.length - 1] || val < arr[0]) {
+    return -1;
+  }
+  while(right - left > 1) {
     console.log('here is mid: ' + mid);
     if(arr[mid] === val) {
       return mid;
